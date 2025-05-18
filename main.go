@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/mail"
 	"os"
@@ -36,7 +37,17 @@ func main() {
 		log.Fatal("DB connect error:", err)
 	}
 	defer db.Close()
+	sqlBytes, err := ioutil.ReadFile("init.sql")
+	if err != nil {
+		log.Fatal("Failed to read init.sql file:", err)
+	}
+	sqlStatements := string(sqlBytes)
 
+	// Execute the SQL statements
+	_, err = db.Exec(sqlStatements)
+	if err != nil {
+		log.Fatal("Failed to execute init.sql statements:", err)
+	}
 	// Use html/template with Fiber
 	engine := html.New("./templates", ".html")
 	engine.Reload(true) // for dev: auto-reload templates
