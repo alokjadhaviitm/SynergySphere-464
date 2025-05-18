@@ -37,7 +37,7 @@ func main() {
 		log.Fatal("DB connect error:", err)
 	}
 	defer db.Close()
-	sqlBytes, err := ioutil.ReadFile("init.sql")
+	sqlBytes, err := ioutil.ReadFile("db/init.sql")
 	if err != nil {
 		log.Fatal("Failed to read init.sql file:", err)
 	}
