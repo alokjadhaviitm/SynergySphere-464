@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"github.com/gofiber/template/html/v2"
+
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/template/html/v2"
 	_ "github.com/lib/pq"
 )
 
@@ -30,7 +31,7 @@ func main() {
 	defer db.Close()
 
 	// Use html/template with Fiber
-	engine := html.New("templates", ".html")
+	engine := html.New("./templates", ".html")
 	engine.Reload(true) // for dev: auto-reload templates
 
 	app := fiber.New(fiber.Config{
@@ -43,8 +44,19 @@ func main() {
 	// Route: Home
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Render("layout", fiber.Map{
-			"Title": "SynergySphere",
+			"Title": "SynergySphere464",
 		})
+	})
+	app.Get("/signup", func(c *fiber.Ctx) error {
+		return c.Render("layout", fiber.Map{
+			"Title": "Sign Up - SynergySphere464",
+		}, "signup")
+	})
+
+	app.Get("/login", func(c *fiber.Ctx) error {
+		return c.Render("layout", fiber.Map{
+			"Title": "Login - SynergySphere464",
+		}, "login")
 	})
 
 	log.Println("Fiber server running at http://localhost:8070")

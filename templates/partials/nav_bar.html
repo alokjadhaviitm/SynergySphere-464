@@ -1,0 +1,189 @@
+<!-- @format -->
+
+{{ define "nav_bar" }}
+
+<nav
+	class="px-4 py-2 flex justify-between items-center sticky top-0 z-50 bg-[var(--bg-primary)]/80 backdrop-blur-md shadow-lg"
+>
+	<!-- Logo -->
+	<div class="flex items-center">
+		<a href="/">
+			<img
+				src="/static/logo1.png"
+				alt="SynergySphere Logo"
+				class="h-12 transition-transform duration-300 hover:scale-105"
+				style="filter: var(--logo-filter)"
+			/>
+		</a>
+	</div>
+
+	<!-- Desktop Menu -->
+	<ul class="hidden md:flex items-center gap-6 text-sm font-medium">
+		<li>
+			<a
+				href="/"
+				class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+				>Home</a
+			>
+		</li>
+		<li>
+			<a
+				href="#"
+				class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+				>Solutions</a
+			>
+		</li>
+		<li>
+			<a
+				href="#"
+				class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+				>Work</a
+			>
+		</li>
+		<li>
+			<a
+				href="#"
+				class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+				>About</a
+			>
+		</li>
+		<li>
+			<a
+				href="/login"
+				class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+				>Login</a
+			>
+		</li>
+		<li>
+			<a
+				href="/signup"
+				class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md"
+			>
+				Sign Up
+			</a>
+		</li>
+		<!-- Theme Toggle Button -->
+		<li>
+			<button
+				id="theme-toggle"
+				class="p-2 rounded-full text-[var(--text-secondary)] hover:text-blue-500 focus:outline-none"
+				aria-label="Toggle theme"
+			>
+				<svg
+					id="theme-icon"
+					class="w-5 h-5"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+					></path>
+				</svg>
+			</button>
+		</li>
+	</ul>
+
+	<!-- Mobile Menu Button -->
+	<button
+		id="mobile-menu-button"
+		class="md:hidden text-[var(--text-secondary)] hover:text-blue-500 focus:outline-none"
+	>
+		<svg
+			class="w-6 h-6"
+			fill="none"
+			stroke="currentColor"
+			viewBox="0 0 24 24"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M4 6h16M4 12h16m-7 6h7"
+			></path>
+		</svg>
+	</button>
+
+	<!-- Mobile Menu -->
+	<div
+		id="mobile-menu"
+		class="hidden md:hidden bg-[var(--bg-secondary)] absolute top-16 left-0 w-full shadow-lg"
+	>
+		<ul class="flex flex-col items-center gap-4 py-6 text-sm font-medium">
+			<li>
+				<a
+					href="/"
+					class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+					>Home</a
+				>
+			</li>
+			<li>
+				<a
+					href="#"
+					class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+					>Solutions</a
+				>
+			</li>
+			<li>
+				<a
+					href="#"
+					class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+					>Work</a
+				>
+			</li>
+			<li>
+				<a
+					href="#"
+					class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+					>About</a
+				>
+			</li>
+			<li>
+				<a
+					href="/login"
+					class="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-200"
+					>Login</a
+				>
+			</li>
+			<li>
+				<a
+					href="/signup"
+					class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+				>
+					Sign Up
+				</a>
+			</li>
+			<!-- Theme Toggle in Mobile Menu -->
+			<li>
+				<button
+					id="mobile-theme-toggle"
+					class="p-2 rounded-full text-[var(--text-secondary)] hover:text-blue-500 focus:outline-none"
+					aria-label="Toggle theme"
+				>
+					<svg
+						id="mobile-theme-icon"
+						class="w-5 h-5"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+						></path>
+					</svg>
+				</button>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+{{ end }}
