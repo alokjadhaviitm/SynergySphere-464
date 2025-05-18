@@ -1,0 +1,27 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8070:8070"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=synergydb
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: synergydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:
